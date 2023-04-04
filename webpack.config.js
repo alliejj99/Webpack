@@ -14,7 +14,7 @@ module.exports = {
     filename: "[name][contenthash].js",
     clean: true,
   },
-
+  // devTool: "source-map", // webpack이 업그레이드 되면서 더이상 설정 하지 않아도 됩니다.
   module: {
     rules: [
       {
@@ -23,14 +23,12 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "src/index.html",
     }),
   ],
-
   devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
