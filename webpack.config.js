@@ -14,6 +14,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name][contenthash].js",
     clean: true,
+    assetModuleFilename: "[name][ext]", // hash값으로 나오는 이미지 이름 원본으로 출력
   },
   module: {
     rules: [
@@ -30,6 +31,10 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: "asset/resource",
       },
     ],
   },
