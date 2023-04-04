@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -6,6 +7,7 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, "src/index.js"),
   },
+
   // 웹팩 작업을 통해 생성된 결과물
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -20,4 +22,11 @@ module.exports = {
       },
     ],
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "src/index.html",
+    }),
+  ],
 };
