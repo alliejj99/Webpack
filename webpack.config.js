@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzer = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "development",
@@ -14,7 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name][contenthash].js",
     clean: true,
-    assetModuleFilename: "[name][ext]", // hash값으로 나오는 이미지 이름 원본으로 출력
+    assetModuleFilename: "[name][ext]",
   },
   module: {
     rules: [
@@ -43,6 +44,7 @@ module.exports = {
       filename: "index.html",
       template: "src/index.html",
     }),
+    new BundleAnalyzer(),
   ],
   devServer: {
     static: {
