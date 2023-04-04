@@ -11,7 +11,6 @@ module.exports = {
   // 웹팩 작업을 통해 생성된 결과물
   output: {
     path: path.resolve(__dirname, "dist"),
-    // filename: "main.js",
     filename: "[name][contenthash].js",
     clean: true,
   },
@@ -31,4 +30,13 @@ module.exports = {
       template: "src/index.html",
     }),
   ],
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    port: 3000,
+    open: true,
+  },
 };
